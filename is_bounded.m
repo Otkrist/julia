@@ -6,7 +6,8 @@ function [tval z]  = is_bounded( z, c, N_ITER, ibeg)
 for i=ibeg:ibeg+N_ITER
     z = z*z + c;
     if abs(z) > 2.0
-        tval = 1.0/i;0.5 * (1 - 1.0/i);
+        % 1.0/i;
+        tval = (1 - 1.0/i);
         return
     end
 end

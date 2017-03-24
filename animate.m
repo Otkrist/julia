@@ -6,11 +6,11 @@ close all
 UB = 2.0;
 
 % values: 0.484; -0.70176-0.3842i; 0.45+0.1428i; 0.285+0.01i; -0.4+0.6i; 3 - 0.4i
-p = 0.484;
+p =-0.4+0.6i;
 
 %% Canvas size:
-M = 1920;
-N = 1080;
+M = 1080;
+N = 1920;
 N_ITER = 500;
 
 get_cplx = @(r,c)((UB * (2 * r-M))/M + (UB * (2 * c-N))/N * 1i);
@@ -24,6 +24,11 @@ for r=1:M
 end
 
 %% Render
+figure;
+pause(0.00001);
+frame_h = get(handle(gcf),'JavaFrame');
+set(frame_h,'Maximized',1); 
+
 I = ones(M,N,3);
 
 for jj=1:N_ITER
@@ -37,10 +42,9 @@ for jj=1:N_ITER
       end
     end
   end
-  if mod(jj,4) == 0
-      jj
+  if mod(jj,1) == 0
       image(I);
-      pause(0.01);
+      pause(0.1);
   end
 end
 
