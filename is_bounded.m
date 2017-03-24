@@ -8,6 +8,7 @@ for i=ibeg:ibeg+N_ITER
     if abs(z) > 2.0
         % 1.0/i;
         tval = (1 - 1.0/i);
+        tval = mod(i,16)/16.0;
         return
     end
 end

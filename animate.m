@@ -44,5 +44,8 @@ for jj=1:N_ITER
       imagesc(I);
       pause(0.1);
   end
+  if mod(jj,100) == 0
+      imwrite(I, 'out.jpg');
+  end
 end
 
