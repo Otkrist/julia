@@ -10,8 +10,8 @@ p = -0.70176-0.3842i;
 %% Canvas size:
 % M = 2160;
 % N = 3840;
-M = 4000;
-N = 4000;
+M = 2000;
+N = 2000;
 N_ITER = 500;
 
 get_cplx = @(r,c)((UB * (2 * r-M))/M + (UB * (2 * c-N))/N * 1i);
@@ -36,7 +36,7 @@ for jj=1:N_ITER
       if I(r,c,2) == 1
           z = C(r,c);
           [tval z] = is_bounded(z,p,1,jj);
-          I(r,c,:) = tval* [0.5 1 0.83];
+          I(r,c,:) = tval* [0.05 0.99 1];
           C(r,c) = z;
       end
     end
