@@ -24,18 +24,20 @@ for r=1:M
 end
 
 %% Render
-I = zeros(M,N,3);
+I = ones(M,N,3);
 
 for jj=1:N_ITER
   for r=1:M
     for c=1:N
-      z = C(r,c);
-      [tval z] = is_bounded(z,p,1,jj);
-      I(r,c,:) = tval;
-      C(r,c) = z;
+      if I(r,c,2) == 1
+          z = C(r,c);
+          [tval z] = is_bounded(z,p,1,jj);
+          I(r,c,:) = tval* [0.5 1 0.83];
+          C(r,c) = z;
+      end
     end
   end
-  if mod(jj,10) == 0
+  if mod(jj,4) == 0
       jj
       image(I);
       pause(0.01);
