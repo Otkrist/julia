@@ -33,7 +33,7 @@ A = [];
 ctr = M*N;
 
 for jj=1:N_ITER
-  if ctr > M*N*0.1
+  if ctr > M*N*0.03
     ctr = 0;
     for r=1:M
       for c=1:N
