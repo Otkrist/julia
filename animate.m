@@ -5,8 +5,8 @@ close all
 %% Globals.
 UB = 2.0;
 
-% values: 0.484; -0.70176-0.3842i; 0.45+0.1428i; 0.285+0.01i; -0.4+0.6i; 3 - 0.4i
-p =-0.4+0.6i;
+% values: 0.484; -0.70176-0.3842i; 0.45+0.1428i; 0.285+0.01i; -0.4+0.6i; -0.3 + 0.4i
+p = -0.4+0.6i;
 
 %% Canvas size:
 M = 1080;
@@ -25,9 +25,7 @@ end
 
 %% Render
 figure;
-pause(0.00001);
-frame_h = get(handle(gcf),'JavaFrame');
-set(frame_h,'Maximized',1); 
+set(gcf, 'Position', get(0,'Screensize')); % Maximize figure.
 
 I = ones(M,N,3);
 
@@ -43,7 +41,7 @@ for jj=1:N_ITER
     end
   end
   if mod(jj,1) == 0
-      image(I);
+      imagesc(I);
       pause(0.1);
   end
 end
