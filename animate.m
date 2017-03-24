@@ -3,14 +3,15 @@ clear all
 close all
 
 %% Globals.
-UB = 2.0;
+UB = 1.5;
 
-% values: 0.484; -0.70176-0.3842i; 0.45+0.1428i; 0.285+0.01i; -0.4+0.6i; -0.3 + 0.4i
-p = -0.4+0.6i;
-
+% values:0.285+0i;-0.70176-0.3842i; 0.285+0.01i;0.484; 0.45+0.1428i; -0.4+0.6i; 0.3 + 0.4i
+p = -0.70176-0.3842i;
 %% Canvas size:
-M = 1080;
-N = 1920;
+% M = 2160;
+% N = 3840;
+M = 4000;
+N = 4000;
 N_ITER = 500;
 
 get_cplx = @(r,c)((UB * (2 * r-M))/M + (UB * (2 * c-N))/N * 1i);
@@ -42,7 +43,7 @@ for jj=1:N_ITER
   end
   if mod(jj,1) == 0
       imagesc(I);
-      pause(0.1);
+      pause(0.02);
   end
   if mod(jj,100) == 0
       imwrite(I, 'out.jpg');
