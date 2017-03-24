@@ -6,7 +6,7 @@ close all
 UB = 1.5;
 
 % values:0.285+0i;-0.70176-0.3842i; 0.285+0.01i;0.484; 0.45+0.1428i; -0.4+0.6i; 0.3 + 0.4i
-p = -0.70176-0.3842i;
+p =0.285+0i; -0.70176-0.3842i;
 %% Canvas size:
 % M = 2160;
 % N = 3840;
@@ -36,13 +36,14 @@ for jj=1:N_ITER
       if I(r,c,2) == 1
           z = C(r,c);
           [tval z] = is_bounded(z,p,1,jj);
-          I(r,c,:) = tval* [0.05 0.99 1];
+          I(r,c,:) = tval* [0.05 1 1];
           C(r,c) = z;
       end
     end
   end
   if mod(jj,1) == 0
       imagesc(I);
+      title(sprintf('Iteration = [%d]', jj));
       pause(0.02);
   end
   if mod(jj,100) == 0
