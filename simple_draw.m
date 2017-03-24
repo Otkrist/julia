@@ -10,7 +10,7 @@ p =-0.4+0.6i;
 %% Canvas size:
 M = 1920;
 N = 1080;
-N_ITER = 500;
+N_ITER = 50;
 get_cplx = @(r,c)((UB * (2 * r-M))/M + (UB * (2 * c-N))/N * 1i);
 
 %%
